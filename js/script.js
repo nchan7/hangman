@@ -2,7 +2,7 @@
 
 
 // Variable declarations
-var words = ["seattle", "california", "washington", "berkeley"];
+var words = ["seattle", "colten", "jeremy", "daniel", "huskies", "kevin", "ethan", "johnny"];
 var correctWord =  words[Math.floor(Math.random() * words.length)];
 var blanks = correctWord.split('').fill("_");
 var guessedLetters = "";
@@ -98,7 +98,7 @@ var checkLetters = function (letter, correctWord) {
 // var revealLetters
 
 
-
+// Credit for the following function to https://stackoverflow.com/questions/20798477/how-to-find-index-of-all-occurrences-of-element-in-array
 function getAllIndexes(arr, val) {
     var indexes = [];
     for(i = 0; i < arr.length; i++)
