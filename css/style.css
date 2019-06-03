@@ -38,3 +38,12 @@ button {
     border-radius: 7px
 }
 
+.hidden {
+    visibility: hidden;
+}
+
+.hangmanimagebox {
+    width: 245px;
+    margin: auto;
+    text-align: center;
+}

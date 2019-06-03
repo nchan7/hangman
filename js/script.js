@@ -9,7 +9,7 @@
 var words = ["seattle", "california", "washington", "berkeley", "i am coding at ga"];
 var correctWord =  words[Math.floor(Math.random() * words.length)];
 var blanks = correctWord.split('').fill("_");
-var guessedLetters = "";
+var guessedLetters = ""; // Helpful to distinguish between successful guessed array vs. incorrect guesses
 var triesLeft = 7;
 
 // HTML Element References
@@ -42,7 +42,7 @@ btnEl2.addEventListener("click", function (e2) {
     pEl.textContent = blanks.join(' ');
     pEl2.textContent = guessedLetters;
     pEl3.textContent = "";
-    document.getElementById("hangmanImage").src = "img/hangman.jpg";
+    document.getElementByClass("hidden")="";
 })
 
 
@@ -62,8 +62,8 @@ var guess = function (letter, correctWord) {
 }
 
 // Update the image
-var hangmanImage = function() {
-    document.getElementById("hangmanImage").src = "img/" + triesLeft +".jpg";
+var revealHangmanImage = function() { // Name functions as verbs!
+    document.getElementById("hangmanimage" + triesLeft).classList.remove("hidden") //.classList accesses all of the classes that are applied
 }
 
 
@@ -75,7 +75,6 @@ var checkLetters = function (letter, correctWord) {
     if (indices.length <= 0) { // If the indices array is 0 or less which means the correct letter has not been identified
         triesLeft--;
         pEl3.textContent = "You have " + triesLeft + " tries left!";
-        hangmanImage(); //Update the image
         if (triesLeft <= 0) {
             pEl3.textContent = "Game Over! Sorry try again!";
             return;
@@ -83,6 +82,7 @@ var checkLetters = function (letter, correctWord) {
         //     alert('You have ' + tries + ' guesses left.');
         //     return;
         // }
+        revealHangmanImage(); //Update the image
     } else {
         indices.forEach( function (index) { // Fill in the blanks
             blanks[index] = letter;
@@ -129,6 +129,16 @@ function getAllIndexes(arr, val) {
             indexes.push(i);
     return indexes;
 }
+
+// function checkForWin() {
+//     // Can check if blanks array has underscores
+//     // Throw message
+//     // Disable button or use game over variable (true or false) to disable button or remove the event listener 
+// }
+
+// function checkfForLoss() {
+
+// }
 
 // Run the guess function based on the word list and the input letter
 guess(letterInput, correctWord);
