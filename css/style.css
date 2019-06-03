@@ -3,13 +3,31 @@ body {
     background-color: #333333;
 
 }
-header, main, footer {
+header {
     width: 70%;
-    height: 200px; /* remove later */
-    border: 1px dashed blue; /* remove later */
+    height: 70px;
     margin: 1em auto;   
     text-align: center;
     vertical-align: middle;
+    color: white;
+}
+
+main {
+    width: 70%;
+    height: 500px;
+    margin: 1em auto;   
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}
+
+footer {
+    width: 70%;
+    /* height: 250px; /* remove later 
+    border: 1px dashed #FFD700; /* remove later */
+    margin: 1em auto;   
+    text-align: center;
+    vertical-align: text-bottom;
     color: white;
 }
 
