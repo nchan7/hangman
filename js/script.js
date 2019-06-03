@@ -2,7 +2,7 @@
 
 
 // Variable declarations
-var words = ["seattle", "colten", "jeremy", "daniel", "huskies", "kevin", "ethan", "johnny"];
+var words = ["seattle", "california", "washington", "berkeley"];
 var correctWord =  words[Math.floor(Math.random() * words.length)];
 var blanks = correctWord.split('').fill("_");
 var guessedLetters = "";
