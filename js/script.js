@@ -15,6 +15,7 @@ pEl.textContent = blanks.join(' ');
 var pEl2 = document.getElementById("guess");
 var btnEl = document.querySelector("button");
 var pEl3 = document.getElementById("tries");
+var btnEl2 = document.getElementById("reset");
 
 
 // Create all event listeners
@@ -26,7 +27,18 @@ btnEl.addEventListener("click", function (e) {
     pEl2.textContent = guessedLetters;
 })
 
-// Show how many guesses people have
+btnEl2.addEventListener("click", function (e2) {
+    guessedLetters = "";
+    triesLeft = 7;
+    correctWord =  words[Math.floor(Math.random() * words.length)];
+    blanks = correctWord.split('').fill("_");
+    pEl.textContent = blanks.join(' ');
+    pEl2.textContent = guessedLetters;
+    pEl3.textContent = "";
+    document.getElementById("hangmanImage").src = "img/hangman.jpg";
+})
+
+
 
 
 
@@ -43,8 +55,6 @@ var guess = function (letter, correctWord) {
 var hangmanImage = function() {
     document.getElementById("hangmanImage").src = "img/" + triesLeft +".jpg";
 }
-
-
 
 var checkLetters = function (letter, correctWord) {
     var arr = correctWord.split('');
@@ -108,3 +118,4 @@ function getAllIndexes(arr, val) {
 }
 
 guess(letterInput, correctWord);
+
